@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using FormalLangs.DFA;
 
-namespace FormalLangs
+namespace FormalLangs.Regexpr
 {
     public class RegexMachine
     {
@@ -10,7 +10,7 @@ namespace FormalLangs
         private RegexMachine()
         {
         }
-        
+
         public bool IsMatch(IEnumerable<char> src)
         {
             stateMachine.Reset();
@@ -19,14 +19,16 @@ namespace FormalLangs
             return stateMachine.IsEndState;
         }
 
-        public static RegexMachine BuildACDBDE2Machine(){
+        public static RegexMachine BuildACDBDE2Machine()
+        {
             var stateMachine = new StateMachine<char>(BuildACDBDE2());
             var regexMachine = new RegexMachine();
             regexMachine.stateMachine = stateMachine;
             return regexMachine;
         }
 
-        public static RegexMachine BuildAMachine(){
+        public static RegexMachine BuildAMachine()
+        {
             var stateMachine = new StateMachine<char>(BuildA());
             var regexMachine = new RegexMachine();
             regexMachine.stateMachine = stateMachine;
@@ -47,7 +49,8 @@ namespace FormalLangs
             return start;
         }
 
-        public static State<char> BuildACDBDE2(){
+        public static State<char> BuildACDBDE2()
+        {
             //(a|cd)+(b|d|e)*
 
             var end = State<char>.BuildEnd();

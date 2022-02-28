@@ -2,7 +2,7 @@ using System;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace FormalLangs
+namespace FormalLangs.Regexpr
 {
     public class RegexMachineTest
     {
@@ -61,6 +61,13 @@ namespace FormalLangs
             }
 
             Console.WriteLine();
+        }
+
+        public static void Run()
+        {
+            var test = new RegexMachineTest();
+            test.TestA();
+            test.TestACDBDE();
         }
     }
 }
